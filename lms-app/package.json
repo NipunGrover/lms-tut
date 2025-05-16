@@ -11,7 +11,12 @@
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.3.2"
+    "next": "15.3.2",
+    "@t3-oss/env-nextjs": "^0.13.4",
+    "drizzle-kit": "^0.31.1",
+    "drizzle-orm": "^0.43.1",
+    "pg": "^8.15.6",
+    "zod": "^3.24.4"
   },
   "devDependencies": {
     "typescript": "^5",
