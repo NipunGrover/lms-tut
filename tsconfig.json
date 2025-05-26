@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "noUncheckedIndexedAccess": true, // always have to check for undefined values in arrays
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
