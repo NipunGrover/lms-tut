@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import { canAccessAdminPages } from "@/permissions/general";
+import { getCurrentUser } from "@/services/clerk";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
@@ -21,12 +23,7 @@ function Navbar() {
           LMS Tutorial
         </Link>
         <SignedIn>
-          <Link
-            className="hover:bg-accent/10 bg flex px-2 h-full items-center"
-            href="/admin"
-          >
-            Admin
-          </Link>
+          <AdminLink />
           <Link
             className="hover:bg-accent/10 bg flex px-2 h-full items-center"
             href="/courses"
@@ -56,5 +53,17 @@ function Navbar() {
         </SignedOut>
       </nav>
     </header>
+  );
+}
+
+async function AdminLink() {
+  const user = await getCurrentUser({ allData: true });
+  console.log(user.user?.name);
+  if (!canAccessAdminPages(user)) return null;
+
+  return (
+    <Link className="hover:bg-accent/10 flex items-center px-2" href="/admin">
+      Admin
+    </Link>
   );
 }
