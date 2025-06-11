@@ -1,7 +1,7 @@
-export default function HomePage() {
+export default function AdminPage() {
   return (
     <div className="container my-6">
-      <h1>Hello World</h1>
+      <h1>TODO: Fix</h1>
     </div>
   );
 }
